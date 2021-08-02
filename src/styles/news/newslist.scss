@@ -1,0 +1,38 @@
+.news {
+    height: 75%;
+    flex-grow: 1;
+    .news__list {
+        height: 100%;
+        overflow-y: scroll;
+        margin: auto;
+        position: relative;
+        .message {
+            display: block;
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            padding: 3% 6%;
+            border-radius: 35px;
+            background-color: #FF96AD;
+            font-family: 'Comfortaa', cursive;
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            animation: messageSpot .4s;
+
+        }
+    }
+
+}
+
+
+@keyframes messageSpot {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

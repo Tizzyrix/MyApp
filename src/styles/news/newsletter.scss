@@ -1,0 +1,88 @@
+.newsletter {
+    background: #4CB3FC;
+    width: 97%;
+    margin: 1% auto;
+    padding: 1%;
+    border-radius: 20px;
+    .newsletter__main {
+        display: flex;
+        width: 100%;
+        padding: 1% auto;
+        .newsletter__img {
+            width: 350px;
+            height: 200px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+        .newsletter__text {
+            width: 65%;
+            margin: 0 1%;
+            .newsletter__title {
+                h2 {
+                    font-family: 'Comfortaa', cursive;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #fff;
+                }
+            }
+            .newsletter__subtitle {
+                p {
+                    font-family: 'Comfortaa', cursive;
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: #fff;
+                }
+            }
+
+        }
+        .newsletter__meta { 
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            .newsletter__time {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                span {
+                    display: block;
+                    font-family: 'Comfortaa', cursive;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #fff;
+                }
+            }
+            .newsletter__favbtn {
+                font-family: 'Comfortaa', cursive;
+                font-size: 14px;
+                font-weight: 700;
+                color: #fff;
+
+                width: 100px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                border-radius: 20px;
+                background: #FF96AD;
+            }
+            .active {
+                background: #022E57;
+            }
+            .newsletter__source {
+                a {
+                    font-family: 'Comfortaa', cursive;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #022E57;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

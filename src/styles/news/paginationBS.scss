@@ -1,0 +1,25 @@
+.paginationbs {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    .pagination {
+        background: #39A2DB;
+        padding: 5px;
+        border-radius: 20px;
+        .page-item {
+            margin: 0 3px;
+            .page-link {
+                border-radius: 20px;
+                width: 30px;
+                height: 30px;
+                background: E8F0F2;
+                border: none;
+                color: #000;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

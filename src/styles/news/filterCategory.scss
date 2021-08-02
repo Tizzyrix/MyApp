@@ -1,0 +1,97 @@
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+
+.category {
+    background: rgba(196, 196, 196, .7);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 10% 32%;
+    margin: 30px 0 0 0;
+    border-radius: 20px;
+    animation-duration: .5s;
+    animation-name: spotFilterCategory;
+    animation-timing-function: ease;
+    transition: .2s ease-out all;
+    .category__button {
+        display: none;
+    }
+    .category__list {
+        transition: .2s ease-out all;
+        .category__item {
+            cursor: pointer;
+            font-family: 'Comfortaa', cursive;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            margin: 10% 0;
+            padding: 2% 6%;
+            border-radius: 20px;
+        }
+        .active {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
+}
+@keyframes spotFilterCategory {
+    0%{
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    header {
+        .header__inner {
+            .category {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin: 20px 10px 0 0;
+                width: 90%;
+                background-color: transparent;
+                &.active {
+                    background: rgba(196, 196, 196, .7);
+                    transition: .4s ease-in all;
+                }
+                .category__button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50px;
+                    height: 50px;
+                    background-color: #39A2DB;
+                    border-radius: 50%;
+                    margin: 5%;
+                    img {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                .category__list {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    transform: translateX(-150px);
+                    &.active {
+                        width: 150px;
+                        height: auto;
+                        opacity: 1;
+                        transform: translateX(0);
+                        transition: .4s ease-in all;
+                    }
+                    .category__item {
+                        margin: 15% 0;
+                        padding: 0 0 0 5%;
+                    }
+                }
+            }
+        }
+    }
+}

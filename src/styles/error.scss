@@ -1,0 +1,21 @@
+.error {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    background-color: #FF96AD;
+    width: 450px;
+    height: 250px;
+    padding: 2%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    .error__message {
+        font-size: 24px; 
+    }
+}

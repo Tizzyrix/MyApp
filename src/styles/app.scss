@@ -1,0 +1,43 @@
+body {
+    background-color: #053742;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 97vw;
+    height: 94vh;
+    display: flex;
+    margin: 1% auto;
+    overflow: hidden;
+}
+
+.page {
+    width: 85%;
+    // height: 100vh;
+    background: #A2DBFA;
+    border-radius: 20px;
+    animation-duration: .4s;
+    animation-name: spotPage;
+    animation-timing-function: ease;
+}
+
+@keyframes spotPage {
+    0%{
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.pagination {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1280px) {
+    .page {
+        width: 100%;
+        max-width: 100%;
+        transition: .3s ease-out;
+    }
+}
