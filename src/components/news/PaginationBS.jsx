@@ -1,17 +1,14 @@
 import React from 'react'
-
-import Pagination from 'react-bootstrap/Pagination'
-
 import {useSelector, useDispatch} from 'react-redux'
 import {changeFilterOptions} from '../../redux/actions'
-
+import Pagination from 'react-bootstrap/Pagination'
+import {helpers} from '../../js/helpers'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../styles/news/paginationBS.scss'
 
 
 const PaginationBS = () => {
-
     const dispatch = useDispatch();
 
     const pages = []
@@ -20,25 +17,8 @@ const PaginationBS = () => {
     const allNews = useSelector(state=> state.news.metadata.totalResults)
     const pageSize = useSelector(state=> state.newsFilter.pageSize)
 
-
-    const countPages = () => {
-       const pagesCount = allNews / pageSize + 1
-       for (let i = 1; i < pagesCount; i++) {
-           pages.push(i)
-       }
-    }
-
-    const getActivePages = () => {      
-        for (let i = currentPage-1; i <= currentPage+1; i++) {
-            if (i <= 0 || i > pages.length) {        
-                continue
-            } else {
-                activePages.push(i)
-            }
-        }
-    }
-    countPages()
-    getActivePages()
+    helpers.countPages(allNews, pageSize, pages)
+    helpers.getActivePages(currentPage, pages, activePages)
 
     return (
         <Pagination size='sm'>

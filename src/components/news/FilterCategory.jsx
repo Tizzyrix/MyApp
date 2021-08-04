@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import { changeFilterOptions } from '../../redux/actions';
+import {helpers} from '../../js/helpers'
 
 import filter from '../../img/icons/general/filter.png'
 import back from '../../img/icons/general/back.png'
@@ -11,44 +12,6 @@ const FilterCategory = () => {
     const dispatch = useDispatch()
     const filterOptions = useSelector(state => state.newsFilter)
     const [isActiveCategory, setIsActiveCategory] = useState(false)
-
-    const nameOfCategoriesHandler = (item) => {
-        switch (item) {
-            case 'business':
-                return 'Business'
-                break;
-            case 'entertainment':
-                return 'Entertainment'
-                break;
-            case 'general':
-                return 'General'
-                break;
-            case 'health':
-                return 'Health'
-                break;
-            case 'science':
-                return 'Science'
-                break;
-            case 'sports':
-                return 'Sports'
-                break;
-            case 'technology':
-                return 'Technology'
-                break;
-            case 'relevancy':
-                return 'Relevancy'
-                break;
-            case 'popularity':
-                return 'Popularity'
-                break;
-            case 'publishedAt':
-                return 'Published at'
-                break;
-            default:
-                return item
-
-        }
-    }
     const [categories, setCategories] = useState([
         'business',
         'entertainment',
@@ -81,7 +44,7 @@ const FilterCategory = () => {
                     } 
                     onClick={()=>dispatch(changeFilterOptions('category', item))} 
                     key={item}
-                    >{nameOfCategoriesHandler(item)}</li>)
+                    >{helpers.nameOfCategoriesHandler(item)}</li>)
                     :
                     sortby.map(item=><li className={
                         filterOptions.sortBy === item ?
@@ -91,7 +54,7 @@ const FilterCategory = () => {
                     }
                     onClick={()=>dispatch(changeFilterOptions('sortBy', item))}
                     key={item}
-                    >{nameOfCategoriesHandler(item)}</li>)
+                    >{helpers.nameOfCategoriesHandler(item)}</li>)
                 }
             </ul>
         </div>

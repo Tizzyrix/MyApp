@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getNews} from '../../redux/actions'
+import {helpers} from '../../js/helpers'
 
 import Newsletter from './Newsletter'
 import Loader from '../Loader'
@@ -29,8 +30,7 @@ const NewsList = () => {
             return false
         }
         return true
-    }
-
+    } 
     useEffect(() => {
         if (!newsByPage[currentPage]) dispatch(getNews())
         if (endpoint || category || sortBy || search || pageSize) dispatch(getNews())
@@ -40,20 +40,32 @@ const NewsList = () => {
         if (isFetching) {
             return <Loader/>
         } else {
-            if (!isEmpty(error)) {
+            if (!helpers.isEmpty(error)) {
                 return <Error />
             } else {
                 if (isFavoriteShown) {
                     if (favorites.length !== 0) {
                         return favorites.map( item => <Newsletter item={item} key={item.id}/>)
                     } else {
-                        return <span className='message'>You didnt add anything in favorites yet...</span>
+                        return (
+                            <>
+                                <div className="message__wrapper">
+                                    <span className='message'>You didnt add anything in favorites yet...</span>
+                                </div>
+                            </>
+                        )
                     }
                 } else {
                     if (newsByPage[currentPage]?.length !== 0) {
                         return newsByPage[currentPage]?.map( item => <Newsletter item={item} key={item.id}/>)
                     } else {
-                        return <span className='message'>Nothing found...</span>
+                        return (
+                            <>
+                                <div className="message__wrapper">
+                                    <span className='message'>Nothing found...</span>
+                                </div>
+                            </>
+                        )
                     }
                 }
             }

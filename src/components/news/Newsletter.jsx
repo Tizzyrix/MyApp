@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {useDispatch} from 'react-redux'
 import {newsFavoriteHandler} from '../../redux/actions'
+import {helpers} from '../../js/helpers'
 
 import '../../styles/news/newsletter.scss'
 
@@ -10,13 +11,7 @@ import newsletter from '../../img/newsletter/newsletter.jpg'
 
 const Newsletter = ({ item }) => {
     const dispatch = useDispatch(); 
-
-    const date = new Date(Date.parse(item.publishedAt))
-    const dateToWrite = `${date.getFullYear(new Date(Date.parse(item.publishedAt)))} ${date.getMonth(new Date(Date.parse(item.publishedAt)))} ${date.getDate(new Date(Date.parse(item.publishedAt)))}`
-
-    const time = `${date.getHours(new Date(Date.parse(item.publishedAt)))}:${date.getMinutes(new Date(Date.parse(item.publishedAt)))}`
-    const timeToWrite = time.length === 4 ? `${time.slice(0, 2)}:0${time.slice(3)}` : time
-
+    const timeAndDate = helpers.getTimeAndDate(item)
         return (
         <div className="newsletter">
             <div className="newsletter__main">
@@ -38,20 +33,21 @@ const Newsletter = ({ item }) => {
                 </div>
                 <div className="newsletter__meta">
                     <div className="newsletter__time">
-                        <span>{dateToWrite}</span>
-                        <span>{timeToWrite}</span>
+                        <span>{timeAndDate.date}</span>
+                        <span>{timeAndDate.time}</span>
                     </div>
                     <div className={
                         item.isFavorited ? 
                         "newsletter__favbtn active"
                         :
                         "newsletter__favbtn"
+
                     }
-                    onClick={()=>{
+                    onClick={(e)=>{
                         item.isFavorited?
                         dispatch(newsFavoriteHandler('remove', item))
                         :
-                        dispatch(newsFavoriteHandler('add', item))
+                        dispatch(newsFavoriteHandler('add', item));
                     }}
                     >
 

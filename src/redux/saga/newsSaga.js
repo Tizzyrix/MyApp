@@ -1,8 +1,7 @@
 import {put, takeEvery, call, select} from 'redux-saga/effects'
 import axios from 'axios'
 import {NEWS} from '../types'
-import {idCreator} from '../../js/idCreator'
-
+import {helpers} from '../../js/helpers'
 
 function axiosRequest (url) {
     return axios({
@@ -11,30 +10,11 @@ function axiosRequest (url) {
     })
 }
 
-function getUrl (filterOptions) {
-    switch (filterOptions.endpoint) {
-        case 'top-headlines':
-            return `https://newsapi.org/v2/${filterOptions.endpoint}?category=${filterOptions.category}&pageSize=${filterOptions.pageSize}&page=${filterOptions.currentPage}&q=${filterOptions.search}&apiKey=c1010a9323d14d7682e439622f13c03d`
-            break;
-        case 'everything':
-            return  `https://newsapi.org/v2/${filterOptions.endpoint}?from=${filterOptions.from}&pageSize=${filterOptions.pageSize}&page=${filterOptions.currentPage}&q=${filterOptions.search}&domains=${filterOptions.domains}&apiKey=c1010a9323d14d7682e439622f13c03d`
-            break;
-        default:
-            return 
-    }   
-}
-
 function* getNewsSaga () {
-    // const getCurrentPage = () => (filterOptions.currentPage)
-    // const getStateNewsFilter = state => state.newsFilter
-
-    // const filterOptions = yield select(getStateNewsFilter)
-    // const currentPage = getCurrentPage()
-
     const filterOptions = yield select(state => state.newsFilter)
     const currentPage = yield select(state => state.newsFilter.currentPage)
     const news = [];
-    const url = getUrl(filterOptions)
+    const url = helpers.getUrl(filterOptions)
 
     try {
         const response = yield call(axiosRequest, url)
@@ -42,7 +22,7 @@ function* getNewsSaga () {
 
         for (let i = 0; i < articles.length; i++) {
             news.push({
-                id: idCreator(),
+                id: helpers.idCreator(),
                 title: articles[i].title,
                 description: articles[i].description,
                 publishedAt: articles[i].publishedAt,
