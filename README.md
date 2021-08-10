@@ -7,6 +7,6 @@ That's news web app pet-project I've made to learn basics of React and Redux, al
 * Webpack
 * SASS
 
-##How to start
+## How to start
 
 -npm run start
