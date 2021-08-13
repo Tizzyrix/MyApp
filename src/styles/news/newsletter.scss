@@ -116,3 +116,42 @@
         }
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .newsletter {
+      .newsletter__main {
+          .newsletter__img {
+              width: 250px;
+              height: 150px;
+          }
+          .newsletter__text {
+            .newsletter__title {
+                h2 {
+                  font-size: 16px;
+                }
+            }
+            .newsletter__subtitle {
+                p {
+                  font-size: 14px;
+                }
+            }
+          }
+      }  
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    .newsletter {
+        .newsletter__main {
+            flex-direction: column;
+            align-items: center;
+            .newsletter__text {
+                width: 90%;
+            }
+            .newsletter__meta {
+                flex-direction: row;
+                width: 100%;
+            }
+        }
+    }
+}

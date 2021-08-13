@@ -82,15 +82,36 @@ const Filter = () => {
             </div>
 
         </div>
-        <div className="search">
+        <div className={
+            isActiveSearch?
+            'search active'
+            :
+            'search'
+        }>
             <form
             action="submit"
             onSubmit={e=>{
                 e.preventDefault()
                 dispatch(changeFilterOptions('search', inputVal))
             }}>
-                <div className={isActiveSearch?'search__input active':'search__input'}>
-                    <input value={inputVal} onChange={(e)=>setInputVal(e.target.value)} placeholder='Search...' type="text" />
+                <div className={
+                    isActiveSearch?
+                    'search__input active'
+                    :
+                    'search__input'
+                    }>
+                    <input
+                    value={inputVal}
+                    onChange={(e)=>setInputVal(e.target.value)}
+                    placeholder='Search...'
+                    type="text" 
+                    className={
+                        isActiveSearch?
+                        'active'
+                        :
+                        ''
+                    }
+                    />
                 </div>
                 <div 
                 className={isActiveSearch?'search__button active':'search__button'}

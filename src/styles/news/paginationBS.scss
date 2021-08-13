@@ -23,3 +23,16 @@
         }
     }
 }
+@media only screen and (max-width: 1024px) {
+    .paginationbs {
+        .pagination {
+            .page-item {
+                .page-link {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
