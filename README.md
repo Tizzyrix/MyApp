@@ -14,3 +14,6 @@ It's a SPA pet-project, compiled on Webpack, written on React in a bundle with R
 
 1. Clone or download the project.
 2. Script for run the project: npm run start
+
+## Additional info
+* Project is in progress
