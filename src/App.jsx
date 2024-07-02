@@ -1,4 +1,4 @@
-import React, {ReactFragment} from 'react';
+import React from 'react';
 import './styles/main.scss';
 import './styles/app.scss'
 
